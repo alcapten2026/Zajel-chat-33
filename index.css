@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+  
+  /* Tropical beach colors */
+  --beach-turquoise: hsl(174, 72%, 56%);
+  --beach-coral: hsl(16, 100%, 66%);
+  --beach-sunset: hsl(39, 100%, 74%);
+  --beach-ocean: hsl(217, 71%, 53%);
+  --beach-sand: hsl(35, 77%, 82%);
+  --beach-palm: hsl(92, 28%, 49%);
+  --beach-dark: hsl(220, 26%, 14%);
+  --beach-surface: hsl(220, 20%, 20%);
+  --beach-border: hsl(220, 13%, 35%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    background: linear-gradient(135deg, var(--beach-ocean) 0%, var(--beach-turquoise) 50%, var(--beach-sand) 100%);
+    min-height: 100vh;
+    background-attachment: fixed;
+  }
+}
+
+@layer utilities {
+  .bg-beach-turquoise {
+    background-color: var(--beach-turquoise);
+  }
+  
+  .bg-beach-coral {
+    background-color: var(--beach-coral);
+  }
+  
+  .bg-beach-sunset {
+    background-color: var(--beach-sunset);
+  }
+  
+  .bg-beach-ocean {
+    background-color: var(--beach-ocean);
+  }
+  
+  .bg-beach-sand {
+    background-color: var(--beach-sand);
+  }
+  
+  .bg-beach-palm {
+    background-color: var(--beach-palm);
+  }
+  
+  .bg-beach-dark {
+    background-color: var(--beach-dark);
+  }
+  
+  .bg-beach-surface {
+    background-color: var(--beach-surface);
+  }
+  
+  .text-beach-turquoise {
+    color: var(--beach-turquoise);
+  }
+  
+  .text-beach-coral {
+    color: var(--beach-coral);
+  }
+  
+  .text-beach-sunset {
+    color: var(--beach-sunset);
+  }
+  
+  .text-beach-ocean {
+    color: var(--beach-ocean);
+  }
+  
+  .text-beach-sand {
+    color: var(--beach-sand);
+  }
+  
+  .text-beach-palm {
+    color: var(--beach-palm);
+  }
+  
+  .border-beach-turquoise {
+    border-color: var(--beach-turquoise);
+  }
+  
+  .border-beach-coral {
+    border-color: var(--beach-coral);
+  }
+  
+  .border-beach-border {
+    border-color: var(--beach-border);
+  }
+}
+
+@keyframes pulse-green {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes transmit {
+  0% { 
+    transform: scale(1); 
+    box-shadow: 0 0 10px var(--beach-turquoise);
+  }
+  100% { 
+    transform: scale(1.05); 
+    box-shadow: 0 0 20px var(--beach-turquoise), 0 0 40px var(--beach-turquoise);
+  }
+}
+
+@keyframes wave {
+  0%, 100% { 
+    transform: rotate(-2deg); 
+  }
+  50% { 
+    transform: rotate(2deg); 
+  }
+}
+
+.animate-wave {
+  animation: wave 3s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  0% { 
+    opacity: 0; 
+    transform: translateY(10px); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+.animate-pulse-green {
+  animation: pulse-green 2s ease-in-out infinite;
+}
+
+.animate-transmit {
+  animation: transmit 0.5s ease-in-out infinite alternate;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
